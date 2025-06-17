@@ -14,9 +14,6 @@ export const en = {
   about_me: "About Me",
   about_me_pragraphs: [
     "I am a software and product developer with a passion for building innovative solutions and a knack for problem-solving. I possess a strong proficiency in Golang, JavaScript, and Docker, and I'm a lifelong learner, always seeking new challenges and opportunities to expand my skillset.",
-    "My passion lies in crafting user-centric products that make a genuine impact. I'm particularly drawn to the power of open-source collaboration, where diverse perspectives come together to drive innovation and create value for communities worldwide.",
-    "Beyond coding, I relish engaging in technical discussions, always striving to find common ground and uncover the most effective solutions. My approach to debate is collaborative and open-minded, fostering a spirit of brainstorming and mutual learning.",
-    "I'm driven by a genuine desire to make a difference through technology, and I'm excited to contribute my skills and expertise to projects that push the boundaries of what's possible.",
   ],
 
   github_graph_title: "Contributions",
@@ -72,9 +69,6 @@ export const tr = {
   about_me: "Hakkımda",
   about_me_pragraphs: [
     "Yenilikçi çözümler üretme tutkusuna ve problem çözme becerisine sahip bir yazılım ve ürün geliştiricisiyim. Golang, JavaScript ve Docker'da güçlü bir uzmanlığa sahibim ve yaşam boyu öğrenen biriyim, becerilerimi genişletmek için her zaman yeni zorluklar ve fırsatlar arıyorum.",
-    "Benim tutkum, gerçek bir etki yaratan, kullanıcı odaklı ürünler yaratmaktır. Özellikle yenilikçiliği teşvik etmek ve dünya çapındaki topluluklar için değer yaratmak amacıyla farklı bakış açılarının bir araya geldiği açık kaynak işbirliğinin gücü ilgimi çekiyor.",
-    "Kodlamanın ötesinde, teknik tartışmalara katılmayı seviyorum, her zaman ortak bir zemin bulmaya ve en etkili çözümleri ortaya çıkarmaya çalışıyorum. Tartışmaya yaklaşımım işbirlikçi ve açık fikirlidir, beyin fırtınası ve karşılıklı öğrenme ruhunu teşvik eder.",
-    "Teknoloji aracılığıyla bir fark yaratmaya yönelik gerçek bir istekle hareket ediyorum ve mümkün olanın sınırlarını zorlayan projelere becerilerim ve uzmanlığımla katkıda bulunmaktan heyecan duyuyorum.",
   ],
 
   github_graph_title: "Katkıları",

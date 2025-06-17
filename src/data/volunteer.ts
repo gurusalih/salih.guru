@@ -9,13 +9,13 @@ export const VolunteerItems: VolunteerItem[] = [
         title: "Gönüllü Yazılım Geliştirici",
         subtitle: "Açık Yazılım Ağı (AYA)",
         description:
-          "Açık Yazılım Ağı'nda gönüllü yazılım geliştirici olarak çalışmaktayım. Bu süreçte açık kaynak projelerine katkıda bulunuyorum.",
+          "AYA'nda açık kaynak projelerine katkıda bulunuyorum.",
       },
       en: {
         title: "Volunteer Software Developer",
         subtitle: "Açık Yazılım Ağı (AYA)",
         description:
-          "I work as a volunteer software developer at the Open Source Network. During this process, I contribute to open source projects.",
+          "I contribute to open source projects at the AYA.",
       },
     },
     tags: ["node", "react", "golang", "typescript"],

@@ -11,15 +11,13 @@ export const ProjectItems: ProjectItem[] = [
         title: "Katkıda Bulunan",
         subtitle: "Tarotica",
         description:
-          `Sadece 48 saatte Esra ile birlikte Tarotica’yı geliştirdik; kişiselleştirilmiş tarot ve fal deneyimi sunan bir mobil uygulama. Fikir, marka, API, landing page ve Expo ile uygulama geliştirme dahil tüm süreci tamamladık. Uygulamayı mağazalar için optimize edip TestFlight’ta beta testine açtık.
-Teknolojiler: Cloudflare (D1, R2, KV, Queue, Workers, Pages), Expo, ChatGPT API, AWS SES, Figma, Canva AI.`,
+          `Mobil tarot uygulaması Tarotica için konsept aşamasından TestFlight beta lansmanına kadar 48 saat içinde arka uç hizmeti geliştirildi.`,
       },
       en: {
         title: "Contributor",
         subtitle: "Tarotica",
         description:
-          `In just 48 hours, Esra and I developed Tarotica, a mobile app for personalized tarot readings and fortune-telling. From idea and branding to API, landing page, and full app development with Expo, we covered the entire process. We also optimized the app for app stores and launched beta testing on TestFlight.
-Tech stack: Cloudflare (D1, R2, KV, Queue, Workers, Pages), Expo, ChatGPT API, AWS SES, Figma, Canva AI.`,
+          `Developed backend service for Tarotica, a mobile tarot app, from concept to TestFlight beta launch in 48 hours.`,
       },
     },
     tags: ["node", "cloudflare"],
@@ -35,13 +33,13 @@ Tech stack: Cloudflare (D1, R2, KV, Queue, Workers, Pages), Expo, ChatGPT API, A
         title: "Katkıda Bulunan",
         subtitle: "NomadWork",
         description:
-          "Nomadwork uygulamasına backend tarafında katkıda bulundum. Bu süreçte Golang, Postgres ve Docker teknolojileri ile çalıştım.",
+          "Go, Postgres ve Docker kullanarak Nomadwork’ün arka ucuna katkıda bulundu.",
       },
       en: {
         title: "Contributor",
         subtitle: "NomadWork",
         description:
-          "I contributed to the Nomadwork application on the backend side. During this process, I worked with Golang, Postgres and Docker technologies.",
+          "Contributed to Nomadwork’s backend using Go, Postgres, and Docker.",
       },
     },
     tags: ["golang", "postgres", "docker"],
@@ -54,16 +52,16 @@ Tech stack: Cloudflare (D1, R2, KV, Queue, Workers, Pages), Expo, ChatGPT API, A
     type: "personal",
     translation: {
       tr: {
-        title: "Geliştirici",
+        title: "Creator",
         subtitle: "GalataJS Framework",
         description:
-          "GalataJS NodeJS framework'ünü geliştirdim. Bu framework ile NodeJS projelerini daha hızlı ve güvenli bir şekilde geliştirmeyi amaçladık.",
+          "Daha hızlı ve güvenli proje geliştirme için Node.js framework'ü olan GalataJS'yi geliştirdi.",
       },
       en: {
-        title: "Developer",
+        title: "Creator",
         subtitle: "GalataJS Framework",
         description:
-          "I developed the GalataJS NodeJS framework. With this framework, we aimed to develop NodeJS projects faster and more securely.",
+          "Developed GalataJS, a Node.js framework for faster and more secure project development.",
       },
     },
     tags: ["node", "typescript"],
