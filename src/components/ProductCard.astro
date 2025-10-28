@@ -1,0 +1,121 @@
+---
+import type { Product } from '../data/products';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+interface Props {
+  product: Product;
+}
+const { product } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+<div class="product-card">
+  <div class="product-image">
+    <img src={product.image} alt={product.title[lang]} loading="lazy" />
+  </div>
+  <div class="product-content">
+    <div class="product-header">
+      <h3>{product.title[lang]}</h3>
+      <span class="product-year">{product.year}</span>
+    </div>
+    <p class="product-description">{product.description[lang]}</p>
+    <div class="product-technologies">
+      {product.technologies.map(tech => (
+        <span class="tech-badge">{tech}</span>
+      ))}
+    </div>
+    {product.link && (
+      <a href={product.link} class="product-link" target="_blank" rel="noopener noreferrer">
+        {t('product.visit')} →
+      </a>
+    )}
+  </div>
+</div>
+<style>
+  .product-card {
+    background: var(--color-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: var(--transition);
+    border: 1px solid var(--color-border);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+  .product-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: #1a1a1a;
+  }
+  .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+  }
+  .product-card:hover .product-image img {
+    transform: scale(1.05);
+  }
+  .product-content {
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-sm);
+    gap: var(--spacing-sm);
+  }
+  .product-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+  .product-year {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    white-space: nowrap;
+    font-weight: 500;
+  }
+  .product-description {
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+    flex: 1;
+  }
+  .product-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+  }
+  .tech-badge {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.75rem;
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 20px;
+    color: var(--color-text);
+    font-weight: 500;
+  }
+  .product-link {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  .product-link:hover {
+    color: var(--color-accent-hover);
+    gap: 0.5rem;
+  }
+</style>
+

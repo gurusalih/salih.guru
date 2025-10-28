@@ -1,0 +1,263 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import StructuredData from '../components/StructuredData.astro';
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  author?: string;
+  keywords?: string;
+}
+const { 
+  title, 
+  description = 'Salih.Guru - Entrepreneur & Product Builder',
+  image = '/og-image.jpg',
+  author = 'Salih',
+  keywords = 'entrepreneur, software developer, product builder, startup founder, tech innovator, salih.guru'
+} = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://salih.guru');
+const ogImageURL = new URL(image, Astro.site || 'https://salih.guru');
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content={author} />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content={lang} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:locale" content={lang === 'tr' ? 'tr_TR' : 'en_US'} />
+    <meta property="og:site_name" content="Salih.Guru" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImageURL} />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="alternate" hreflang="en" href="https://salih.guru/" />
+    <link rel="alternate" hreflang="tr" href="https://salih.guru/tr" />
+    <link rel="alternate" hreflang="x-default" href="https://salih.guru/" />
+    <StructuredData 
+      name={author}
+      description={description}
+      url={canonicalURL.toString()}
+      email="hello@salih.guru"
+      image={ogImageURL.toString()}
+    />
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="container">
+        <a href={`/${lang === 'en' ? '' : lang}`} class="logo">
+          <span class="logo-icon">◆</span>Salih<span class="logo-dot">.</span>Guru
+        </a>
+        <div class="nav-links">
+          <a href={`/${lang === 'en' ? '' : lang}#about`}>{t('nav.about')}</a>
+          <a href={`/${lang === 'en' ? '' : lang}#current`}>{t('nav.current')}</a>
+          <a href={`/${lang === 'en' ? '' : lang}#past`}>{t('nav.past')}</a>
+          <a href={`/${lang === 'en' ? '' : lang}#contact`}>{t('nav.contact')}</a>
+          <div class="lang-switcher">
+            <a href="/" class={lang === 'en' ? 'active' : ''}>EN</a>
+            <span>/</span>
+            <a href="/tr" class={lang === 'tr' ? 'active' : ''}>TR</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <slot />
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; {new Date().getFullYear()} Salih.Guru. {t('footer.rights')}</p>
+      </div>
+    </footer>
+  </body>
+</html>
+<style is:global>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  :root {
+    --color-bg: #0a0a0a;
+    --color-text: #e5e7eb;
+    --color-text-light: #9ca3af;
+    --color-accent: #6366f1;
+    --color-accent-hover: #818cf8;
+    --color-border: #1f2937;
+    --color-card: #111827;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
+    --radius: 16px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+    --shadow-md: 0 8px 16px rgba(0,0,0,0.4);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    background: var(--color-bg);
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+  }
+  .nav {
+    position: sticky;
+    top: 0;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--spacing-sm) 0;
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+  .nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .logo-icon {
+    color: var(--color-accent);
+    font-size: 1.2rem;
+    display: inline-block;
+    animation: rotate 20s linear infinite;
+  }
+  .logo-dot {
+    color: var(--color-accent);
+  }
+  .logo:hover {
+    opacity: 0.8;
+  }
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .nav-links {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+  }
+  .nav-links a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    font-size: 0.95rem;
+  }
+  .nav-links a:hover {
+    color: var(--color-accent);
+  }
+  .lang-switcher {
+    display: flex;
+    gap: var(--spacing-xs);
+    margin-left: var(--spacing-sm);
+    padding-left: var(--spacing-md);
+    border-left: 1px solid var(--color-border);
+  }
+  .lang-switcher a {
+    font-size: 0.9rem;
+    opacity: 0.6;
+  }
+  .lang-switcher a.active {
+    opacity: 1;
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+  .lang-switcher span {
+    opacity: 0.3;
+  }
+  main {
+    min-height: calc(100vh - 140px);
+  }
+  .footer {
+    border-top: 1px solid var(--color-border);
+    padding: var(--spacing-md) 0;
+    margin-top: var(--spacing-xl);
+    text-align: center;
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+  }
+  h1, h2, h3 {
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  h1 {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+  }
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+  }
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+  }
+  @media (max-width: 768px) {
+    .nav-links {
+      gap: var(--spacing-sm);
+    }
+    .nav-links a {
+      font-size: 0.85rem;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    h2 {
+      font-size: 1.75rem;
+    }
+    h3 {
+      font-size: 1.25rem;
+    }
+  }
+</style>
+

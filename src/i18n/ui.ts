@@ -1,40 +1,72 @@
-import { en, tr, type TranslationValues } from "./translations";
-
 export const languages = {
-  en: "English",
-  tr: "Türkçe",
+  en: 'English',
+  tr: 'Türkçe',
 };
 
-export const showDefaultLang = true;
-export const defaultLang = "en";
+export const defaultLang = 'en';
 
-export const LocaleCodes: Record<Locale, string> = {
-  en: "en-US",
-  tr: "tr-TR",
-};
-
-export const ui: Record<keyof typeof languages, TranslationValues> = {
-  en: en,
-  tr: tr,
+export const ui = {
+  en: {
+    'nav.home': 'Home',
+    'nav.about': 'About',
+    'nav.past': 'Past Projects',
+    'nav.current': 'Current Projects',
+    'nav.collaborated': 'Collaborations',
+    'nav.contact': 'Contact',
+    'hero.greeting': 'Hi, I\'m',
+    'hero.title': 'Entrepreneur & Product Builder',
+    'hero.subtitle': 'Building software products that make a difference',
+    'hero.cta': 'View My Work',
+    'section.about': 'About Me',
+    'section.about.intro': 'Passionate Entrepreneur',
+    'section.about.text1': 'I\'m a software entrepreneur with from 2020 to present of experience building products that solve real-world problems. My journey started with a simple idea and has evolved into creating multiple successful software businesses.',
+    'section.about.text2': 'I specialize in identifying market opportunities, building lean MVPs, and scaling products to thousands of users. My approach combines technical expertise with business acumen, allowing me to bridge the gap between vision and execution.',
+    'section.about.text3': 'When I\'m not coding or strategizing the next product, you\'ll find me mentoring aspiring entrepreneurs, contributing to open-source projects, or exploring emerging technologies like AI.',
+    'section.about.stats.products': 'Products Launched',
+    'section.about.stats.users': 'Active Users',
+    'section.about.stats.years': 'Years Experience',
+    'section.past': 'Past Products',
+    'section.past.desc': 'Products I\'ve successfully built and launched',
+    'section.current': 'Current Products',
+    'section.current.desc': 'Products I\'m actively working on',
+    'section.collaborated': 'Collaborated Products',
+    'section.collaborated.desc': 'Products I\'ve contributed to as a collaborator',
+    'section.connect': 'Let\'s Connect',
+    'section.connect.desc': 'Find me on social media and let\'s build something amazing together',
+    'product.visit': 'Visit',
+    'product.learn': 'Learn More',
+    'footer.rights': 'All rights reserved.',
+  },
+  tr: {
+    'nav.home': 'Ana Sayfa',
+    'nav.about': 'Hakkımda',
+    'nav.past': 'Geçmiş Projeler',
+    'nav.current': 'Güncel Projeler',
+    'nav.collaborated': 'İşbirlikleri',
+    'nav.contact': 'İletişim',
+    'hero.greeting': 'Merhaba, Ben',
+    'hero.title': 'Girişimci & Ürün Geliştiricisi',
+    'hero.subtitle': 'Fark yaratan yazılım ürünleri geliştiriyorum',
+    'hero.cta': 'Çalışmalarımı Gör',
+    'section.about': 'Hakkımda',
+    'section.about.intro': 'Tutkulu Girişimci',
+    'section.about.text1': '2020 yılından beri, gerçek dünya problemlerine çözüm üreten bir yazılım girişimcisiyim. Yolculuğum basit bir fikirle başladı ve birden fazla başarılı yazılım işi yaratmaya dönüştü.',
+    'section.about.text2': 'Pazar fırsatlarını belirleme, yalın MVP\'ler oluşturma ve ürünleri binlerce kullanıcıya ölçeklendirme konusunda uzmanım. Yaklaşımım teknik uzmanlığı iş anlayışıyla birleştirerek vizyon ve uygulama arasındaki boşluğu doldurur.',
+    'section.about.text3': 'Kod yazmadığım veya bir sonraki ürünü stratejilendirmediğim zamanlarda, girişimci adaylarına mentorluk yapıyor, açık kaynak projelere katkıda bulunuyor veya yapay zeka gibi yeni teknolojileri keşfediyorum.',
+    'section.about.stats.products': 'Yayınlanan Ürün',
+    'section.about.stats.users': 'Aktif Kullanıcı',
+    'section.about.stats.years': 'Yıl Deneyim',
+    'section.past': 'Geçmiş Ürünler',
+    'section.past.desc': 'Başarıyla geliştirip yayınladığım ürünler',
+    'section.current': 'Güncel Ürünler',
+    'section.current.desc': 'Aktif olarak üzerinde çalıştığım ürünler',
+    'section.collaborated': 'İşbirliği Yaptığım Ürünler',
+    'section.collaborated.desc': 'Katkı sağladığım ürünler',
+    'section.connect': 'Bağlantıda Kalalım',
+    'section.connect.desc': 'Sosyal medyada beni bulun ve birlikte harika bir şeyler yapalım',
+    'product.visit': 'Ziyaret Et',
+    'product.learn': 'Daha Fazla',
+    'footer.rights': 'Tüm hakları saklıdır.',
+  },
 } as const;
 
-const enRoutes = {
-  "": "",
-};
-
-const trRoutes = {
-  "": "",
-};
-
-export const routes: Record<keyof typeof languages, Record<string, string>> = {
-  en: enRoutes,
-  tr: trRoutes,
-} as const;
-
-export type RouteKey = keyof typeof enRoutes;
-export type Locale = keyof typeof ui;
-
-export enum Locales {
-  en = "en",
-  tr = "tr",
-}

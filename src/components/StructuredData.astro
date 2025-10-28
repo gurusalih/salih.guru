@@ -1,0 +1,30 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  url: string;
+  email: string;
+  image?: string;
+}
+const { name, description, url, email, image = '/og-image.jpg' } = Astro.props;
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": name,
+  "url": url,
+  "email": email,
+  "image": image,
+  "description": description,
+  "jobTitle": "Entrepreneur & Product Builder",
+  "sameAs": [
+    "https://github.com/yourusername",
+    "https://twitter.com/yourusername",
+    "https://linkedin.com/in/yourusername",
+    "https://youtube.com/@yourusername",
+    "https://instagram.com/yourusername",
+    "https://medium.com/@yourusername"
+  ]
+};
+---
+<script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
