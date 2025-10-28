@@ -1,0 +1,147 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+<section id="about" class="about-section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-content">
+        <div class="section-label">{t('section.about.intro')}</div>
+        <h2>{t('section.about')}</h2>
+        <div class="about-text">
+          <p>{t('section.about.text1')}</p>
+          <p>{t('section.about.text2')}</p>
+          <p>{t('section.about.text3')}</p>
+        </div>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">{t('section.about.stats.products')}</div>
+          <div class="stat-decoration"></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">3M+</div>
+          <div class="stat-label">{t('section.about.stats.users')}</div>
+          <div class="stat-decoration"></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">5+</div>
+          <div class="stat-label">{t('section.about.stats.years')}</div>
+          <div class="stat-decoration"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .about-section {
+    padding: var(--spacing-xl) 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+  }
+  .section-label {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.08));
+    color: var(--color-accent-hover);
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 20px;
+    margin-bottom: var(--spacing-md);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+  }
+  .about-content h2 {
+    margin-bottom: var(--spacing-md);
+    background: linear-gradient(135deg, var(--color-text) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .about-text p {
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+    font-size: 1.05rem;
+  }
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  .stat-card {
+    background: linear-gradient(135deg, var(--color-card) 0%, rgba(17, 24, 39, 0.8) 100%);
+    padding: var(--spacing-md);
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border);
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+  }
+  .stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3);
+    border-color: var(--color-accent);
+  }
+  .stat-decoration {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: var(--spacing-xs);
+  }
+  .stat-label {
+    color: var(--color-text-light);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  @media (max-width: 968px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+    }
+    .about-stats {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 640px) {
+    .about-stats {
+      grid-template-columns: 1fr;
+    }
+    .stat-number {
+      font-size: 2.5rem;
+    }
+  }
+</style>
+

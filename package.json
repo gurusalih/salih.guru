@@ -1,29 +1,19 @@
 {
-  "name": "9ssi7.dev",
+  "name": "salih.guru",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
-		"dev": "astro dev",
-		"build": "astro build",
-		"preview": "astro build && wrangler dev",
-		"astro": "astro",
-		"deploy": "astro build && wrangler deploy",
-		"cf-typegen": "wrangler types"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "deploy": "npx wrangler@latest pages deploy"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/cloudflare": "^12.5.4",
-    "@astrojs/mdx": "^4.3.0",
-    "@lucide/astro": "^0.515.0",
-    "@tailwindcss/vite": "^4.1.10",
-    "astro": "^5.9.3",
-    "dayjs": "^1.11.11",
-    "simple-icons-astro": "^15.1.0",
-    "tailwindcss": "^4.1.10"
-  },
-  "devDependencies": {
-    "typescript": "^5.4.5",
-    "@types/node": "^24.0.1",
-		"wrangler": "^4.20.0"
+    "@astrojs/check": "^0.9.3",
+    "@astrojs/cloudflare": "^11.1.0",
+    "astro": "^4.16.1",
+    "typescript": "^5.6.2"
   }
 }
